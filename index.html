@@ -52,6 +52,29 @@
       background-position: center;
       background-size: cover;
     }
+    .signature-arrival {
+      animation: signature-arrive 700ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    }
+    .signature-float {
+      animation: signature-float 5s ease-in-out 700ms infinite;
+      transform-origin: center;
+    }
+    @keyframes signature-arrive {
+      from { opacity: 0; transform: translate(8px, 16px) rotate(12deg) scale(0.75); }
+      to { opacity: 1; transform: translate(0) rotate(-7deg) scale(1); }
+    }
+    @keyframes signature-float {
+      0%, 100% { transform: translateY(0) rotate(-7deg); }
+      50% { transform: translateY(-6px) rotate(-4deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .signature-arrival,
+      .signature-float {
+        animation: none;
+      }
+      .signature-arrival { opacity: 1; }
+      .signature-float { transform: rotate(-7deg); }
+    }
   </style>
 </head>
 <body class="bg-paper text-risoblack font-sans selection:bg-risoyellow selection:text-risoblack antialiased border-t-8 border-risored">
@@ -115,6 +138,9 @@
                 <p class="mt-4 font-mono text-xs uppercase">Centenaire · appel à projets</p>
               </div>
             </div>
+          </div>
+          <div class="signature-arrival mt-5 flex justify-end">
+            <img src="assets/logos/signature.svg" alt="" aria-hidden="true" class="signature-float w-36 sm:w-44 md:w-48" />
           </div>
         </figure>
       </div>
