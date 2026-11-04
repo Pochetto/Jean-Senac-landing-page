@@ -37,16 +37,15 @@
       background-image: radial-gradient(#111 0.8px, transparent 0.8px);
       background-size: 7px 7px;
     }
-    .hero-section {
+    .riso-texture {
       position: relative;
       isolation: isolate;
     }
-    .hero-section::before {
+    .riso-texture::before {
       content: "";
       position: absolute;
       inset: 0;
       z-index: -1;
-      /* Main animated visual: assets/images/sanac.gif */
       background-image:
         linear-gradient(rgba(249, 248, 246, 0.86), rgba(249, 248, 246, 0.86)),
         url("assets/images/sanac.gif");
@@ -79,7 +78,7 @@
   <main class="max-w-6xl mx-auto px-6">
     
     <!-- Hero Section -->
-    <section aria-labelledby="titre-principal" class="hero-section py-16 md:py-24 border-b border-risoblack/20">
+    <section aria-labelledby="titre-principal" class="riso-texture py-16 md:py-24 border-b border-risoblack/20">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <div class="lg:col-span-7 space-y-6">
           <div class="inline-block bg-risoyellow text-risoblack font-mono text-xs font-semibold px-3 py-1 uppercase tracking-wider border border-risoblack">
@@ -168,7 +167,7 @@
     </section>
 
     <!-- Constraints & Riso Terrain -->
-    <section aria-labelledby="production-titre" class="py-16 border-b border-risoblack/20">
+    <section aria-labelledby="production-titre" class="riso-texture py-16 border-b border-risoblack/20">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
         <div class="md:col-span-4">
           <h2 class="text-xs uppercase font-mono tracking-widest text-risoblack font-bold">03. Production</h2>
