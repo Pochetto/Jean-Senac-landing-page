@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Appel à Projets — Jean Sénac (1926–2026)</title>
-  <meta name="description" content="La Chambre Claire et Tarakomat lancent un appel à projets en risographie pour célébrer le centenaire de Jean Sénac. Candidatures jusqu’au 15 novembre 2026." />
+  <title data-i18n="pageTitle">Appel à Projets — Jean Sénac (1926–2026)</title>
+  <meta name="description" content="La Chambre Claire et Tarakomat lancent un appel à projets en risographie pour célébrer le centenaire de Jean Sénac. Candidatures jusqu’au 15 novembre 2026." data-i18n-content="metaDescription" />
   <meta name="theme-color" content="#f9f8f6" />
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -59,6 +59,21 @@
       animation: signature-float 5s ease-in-out 700ms infinite;
       transform-origin: center;
     }
+    html[lang="ar"] body,
+    html[lang="ar"] .font-serif {
+      font-family: "Noto Sans Arabic", sans-serif;
+    }
+    [dir="rtl"] .border-l-2 {
+      border-left: 0;
+      border-right-width: 2px;
+    }
+    [dir="rtl"] .pl-4 {
+      padding-left: 0;
+      padding-right: 1rem;
+    }
+    [dir="rtl"] .space-x-2 > :not([hidden]) ~ :not([hidden]) {
+      --tw-space-x-reverse: 1;
+    }
     @keyframes signature-arrive {
       from { opacity: 0; transform: translate(8px, 16px) rotate(12deg) scale(0.75); }
       to { opacity: 1; transform: translate(0) rotate(-7deg) scale(1); }
@@ -76,26 +91,36 @@
       .signature-float { transform: rotate(-7deg); }
     }
   </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="bg-paper text-risoblack font-sans selection:bg-risoyellow selection:text-risoblack antialiased border-t-8 border-risored">
 
   <!-- Header / Navigation -->
   <header class="max-w-6xl mx-auto px-6 py-6 md:py-8 flex flex-wrap justify-between items-center gap-5 border-b border-risoblack/20">
-    <div class="flex flex-wrap items-center gap-3 sm:gap-5" aria-label="Organisateurs">
+    <div class="flex flex-wrap items-center gap-3 sm:gap-5" aria-label="Organisateurs" data-i18n-aria-label="organizers">
       <div class="h-20 md:h-24 flex items-center">
-        <img src="assets/logos/LCC-FR-NOIR.png" alt="La Chambre Claire" class="h-16 md:h-20 w-auto max-w-[16rem] object-contain" onerror="this.hidden=true; this.nextElementSibling.hidden=false; this.nextElementSibling.classList.remove('hidden')" />
-        <span class="hidden border-2 border-risoblack px-2 py-1 font-bold tracking-tight text-xs uppercase">La Chambre Claire</span>
+        <img src="assets/logos/LCC-FR-NOIR.png" alt="La Chambre Claire" data-i18n-alt="chambreClaire" class="h-16 md:h-20 w-auto max-w-[16rem] object-contain" onerror="this.hidden=true; this.nextElementSibling.hidden=false; this.nextElementSibling.classList.remove('hidden')" />
+        <span class="hidden border-2 border-risoblack px-2 py-1 font-bold tracking-tight text-xs uppercase" data-i18n="chambreClaire">La Chambre Claire</span>
       </div>
       <span class="font-mono text-base md:text-lg" aria-hidden="true">×</span>
       <div class="h-20 md:h-24 flex items-center">
-        <img src="assets/logos/tarakoumat_red.jpg_Bleu.svg" alt="Tarakomat" class="h-16 md:h-20 w-auto max-w-[16rem] object-contain contrast-150 mix-blend-multiply" onerror="this.hidden=true; this.nextElementSibling.hidden=false; this.nextElementSibling.classList.remove('hidden')" />
-        <span class="hidden bg-risoblack text-paper px-2 py-1 font-bold tracking-tight text-xs uppercase">Tarakomat</span>
+        <img src="assets/logos/tarakoumat_red.jpg_Bleu.svg" alt="Tarakomat" data-i18n-alt="tarakomat" class="h-16 md:h-20 w-auto max-w-[16rem] object-contain contrast-150 mix-blend-multiply" onerror="this.hidden=true; this.nextElementSibling.hidden=false; this.nextElementSibling.classList.remove('hidden')" />
+        <span class="hidden bg-risoblack text-paper px-2 py-1 font-bold tracking-tight text-xs uppercase" data-i18n="tarakomat">Tarakomat</span>
       </div>
     </div>
 
-    <a href="#candidater" class="bg-risored text-white text-xs uppercase font-bold tracking-widest px-4 py-2 hover:bg-risoblack transition-colors">
-      Candidater
-    </a>
+    <div class="flex flex-wrap items-center gap-3">
+      <div class="inline-flex border border-risoblack" role="group" aria-label="Language selector" data-i18n-aria-label="languageSelector">
+        <button type="button" class="language-button px-2 py-2 text-xs font-bold" data-language="fr" aria-pressed="true" lang="fr">FR</button>
+        <button type="button" class="language-button px-2 py-2 text-xs font-bold" data-language="en" aria-pressed="false" lang="en">EN</button>
+        <button type="button" class="language-button px-2 py-2 text-xs font-bold" data-language="ar" aria-pressed="false" lang="ar">العربية</button>
+      </div>
+      <a href="#candidater" class="bg-risored text-white text-xs uppercase font-bold tracking-widest px-4 py-2 hover:bg-risoblack transition-colors" data-i18n="apply">
+        Candidater
+      </a>
+    </div>
   </header>
 
   <main class="max-w-6xl mx-auto px-6">
@@ -105,37 +130,37 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <div class="lg:col-span-7 space-y-6">
           <div class="inline-block bg-risoyellow text-risoblack font-mono text-xs font-semibold px-3 py-1 uppercase tracking-wider border border-risoblack">
-            Centenaire de la naissance (1926–2026)
+            <span data-i18n="centenary">Centenaire de la naissance (1926–2026)</span>
           </div>
           <h1 id="titre-principal" class="text-5xl md:text-7xl font-serif leading-tight">
-            Appel à Projets : <br/>
+            <span data-i18n="callForProjects">Appel à Projets :</span> <br/>
             <span class="italic underline decoration-risored decoration-4">Jean Sénac</span>
           </h1>
-          <p class="text-lg md:text-xl font-bold tracking-tight">La Chambre Claire <span class="text-risored">×</span> Tarakomat</p>
+          <p class="text-lg md:text-xl font-bold tracking-tight" data-i18n="organizerNames">La Chambre Claire <span class="text-risored">×</span> Tarakomat</p>
           <p class="text-base md:text-lg font-light text-slate-700">
-            Une édition collective en risographie pour célébrer l’œuvre, l’engagement et l’héritage du poète.
+            <span data-i18n="heroDescription">La Chambre Claire et Tarakomat invitent tous les artistes et créateurs à proposer une édition en risographie pour le centenaire du poète.</span>
           </p>
-          <div class="pt-4 flex flex-wrap items-center gap-6">
-            <div class="border-l-2 border-risored pl-4">
-              <span class="block text-xs uppercase font-mono text-slate-600">Date limite</span>
-              <time class="text-lg font-bold" datetime="2026-11-15">15 novembre 2026</time>
+          <div class="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="min-w-0 border-l-2 border-risored pl-4 py-1">
+              <span class="block text-xs uppercase font-mono text-slate-600" data-i18n="deadline">Date limite</span>
+              <time class="block text-lg font-bold" datetime="2026-11-15" data-i18n="deadlineDate">15 novembre 2026</time>
             </div>
-            <div class="border-l-2 border-risoblue pl-4">
-              <span class="block text-xs uppercase font-mono text-slate-600">Événement & restitution</span>
-              <time class="text-lg font-bold" datetime="2026-11-29">29 novembre 2026</time>
+            <div class="min-w-0 border-l-2 border-risoblue pl-4 py-1">
+              <span class="block text-xs uppercase font-mono text-slate-600" data-i18n="eventAndShowcase">Événement & restitution</span>
+              <time class="block text-lg font-bold" datetime="2026-11-29" data-i18n="eventDate">29 novembre 2026</time>
             </div>
           </div>
         </div>
 
         <figure class="lg:col-span-5 relative">
           <div class="border-2 border-risoblack p-2 bg-white shadow-[8px_8px_0px_0px_rgba(17,17,17,1)]">
-            <img src="assets/images/sanac.gif" alt="Visuel principal animé de l’appel à projets Jean Sénac" class="w-full aspect-[4/5] object-cover contrast-110" fetchpriority="high" onerror="this.hidden=true; this.nextElementSibling.hidden=false; this.nextElementSibling.classList.remove('hidden')" />
+            <img src="assets/images/sanac.gif" alt="Visuel principal animé de l’appel à projets Jean Sénac" data-i18n-alt="heroImageAlt" class="w-full aspect-[4/5] object-cover contrast-110" fetchpriority="high" onerror="this.hidden=true; this.nextElementSibling.hidden=false; this.nextElementSibling.classList.remove('hidden')" />
             <div hidden class="halftone relative min-h-[20rem] aspect-[4/5] overflow-hidden bg-risoyellow p-6">
               <div class="absolute inset-y-0 right-0 w-2/3 bg-risored mix-blend-multiply"></div>
               <div class="absolute bottom-8 left-8 right-8 border-2 border-risoblack bg-paper p-5 shadow-[6px_6px_0px_0px_rgba(17,17,17,1)]">
                 <p class="font-mono text-xs uppercase tracking-widest">1926 — 2026</p>
                 <p class="mt-2 font-serif text-5xl leading-none">Jean<br><span class="italic">Sénac</span></p>
-                <p class="mt-4 font-mono text-xs uppercase">Centenaire · appel à projets</p>
+                <p class="mt-4 font-mono text-xs uppercase" data-i18n="fallbackImageCaption">Centenaire · appel à projets</p>
               </div>
             </div>
           </div>
@@ -150,18 +175,18 @@
     <section aria-labelledby="contexte-titre" class="py-16 border-b border-risoblack/20">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
         <div class="md:col-span-4">
-          <h2 class="text-xs uppercase font-mono tracking-widest text-risored font-bold">01. Le Protagoniste</h2>
-          <h3 id="contexte-titre" class="text-3xl font-serif mt-2">Qui était Jean Sénac ?</h3>
+          <h2 class="text-xs uppercase font-mono tracking-widest text-risored font-bold" data-i18n="sectionOne">01. Le Protagoniste</h2>
+          <h3 id="contexte-titre" class="text-3xl font-serif mt-2" data-i18n="whoWasSenac">Qui était Jean Sénac ?</h3>
         </div>
         <div class="md:col-span-8 space-y-4 text-base leading-relaxed text-slate-800">
           <p>
-            Né le 29 novembre 1926 à Béni-Saf, Jean Sénac fut un poète profondément engagé dans la lutte pour l’indépendance de l’Algérie, et une voix singulière de la liberté, du corps et du désir.
+            <span data-i18n="contextOne">Né le 29 novembre 1926 à Béni-Saf, Jean Sénac fut un poète profondément engagé dans la lutte pour l’indépendance de l’Algérie, et une voix singulière de la liberté, du corps et du désir.</span>
           </p>
           <p>
-            Son œuvre et son parcours, traversés par les espoirs de la révolution, les contradictions de l’indépendance et l’expérience de la marginalisation, continuent d’interroger notre rapport à l’émancipation, à l’appartenance collective et à la liberté individuelle.
+            <span data-i18n="contextTwo">Son œuvre et son parcours, traversés par les espoirs de la révolution, les contradictions de l’indépendance et l’expérience de la marginalisation, continuent d’interroger notre rapport à l’émancipation, à l’appartenance collective et à la liberté individuelle.</span>
           </p>
           <p>
-            Défenseur de nouvelles voix poétiques algériennes, Sénac a également contribué à faire émerger une génération d’écrivains et de créateurs. Ce centenaire est l’occasion d’ouvrir un espace à de nouvelles expressions artistiques et intellectuelles.
+            <span data-i18n="contextThree">Défenseur de nouvelles voix poétiques algériennes, Sénac a également contribué à faire émerger une génération d’écrivains et de créateurs. Ce centenaire est l’occasion non seulement de revisiter son œuvre, mais aussi de prolonger cet engagement en ouvrant un espace à de nouvelles expressions artistiques et intellectuelles.</span>
           </p>
         </div>
       </div>
@@ -171,21 +196,24 @@
     <section aria-labelledby="formats-titre" class="py-16 border-b border-risoblack/20">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
         <div class="md:col-span-4">
-          <h2 class="text-xs uppercase font-mono tracking-widest text-risoblue font-bold">02. Formats & Approches</h2>
-          <h3 id="formats-titre" class="text-3xl font-serif mt-2">Entrer en dialogue</h3>
+          <h2 class="text-xs uppercase font-mono tracking-widest text-risoblue font-bold" data-i18n="sectionTwo">02. Formats & Approches</h2>
+          <h3 id="formats-titre" class="text-3xl font-serif mt-2" data-i18n="dialogueHeading">Entrer en dialogue</h3>
         </div>
         <div class="md:col-span-8 space-y-6">
           <p class="text-lg">
-            Photographie, dessin, poésie, collage, illustration, écriture, bande dessinée, typographie ou archives réinterprétées… Toutes les formes de création imprimables en risographie sont les bienvenues. Format final : jusqu’au A3.
+            <span data-i18n="formatsDescription">Photographie, dessin, poésie, collage, illustration, écriture, bande dessinée, typographie ou archives réinterprétées… Toutes les formes de création imprimables en risographie sont les bienvenues. Le format final est libre, dans la limite du A3. Les artistes peuvent proposer une œuvre existante ou concevoir un projet pour l’occasion.</span>
+          </p>
+          <p class="text-slate-700">
+            <span data-i18n="dialogueDescription">Il ne s’agit pas nécessairement d’illustrer ses poèmes, mais d’entrer en dialogue avec Jean Sénac de manière personnelle et singulière. Cet hommage invite à porter un regard contemporain, sensible ou critique sur son héritage, sans chercher à enfermer son œuvre.</span>
           </p>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <article class="p-4 border border-risoblack/30 bg-white">
-              <h4 class="font-bold text-sm uppercase mb-1">Approche Libre</h4>
-              <p class="text-xs text-slate-700">Travaillez à partir des textes de Sénac, de son parcours, de son univers, de son époque ou des questions que son œuvre soulève aujourd’hui.</p>
+              <h4 class="font-bold text-sm uppercase mb-1" data-i18n="freeApproach">Approche Libre</h4>
+              <p class="text-xs text-slate-700" data-i18n="freeApproachDescription">Travaillez à partir des textes de Sénac, de son parcours, de son univers, de son époque ou des questions que son œuvre soulève aujourd’hui.</p>
             </article>
             <article class="p-4 border border-risoblack/30 bg-white">
-              <h4 class="font-bold text-sm uppercase mb-1">Textes & Fragments</h4>
-              <p class="text-xs text-slate-700">L’utilisation de ses textes et de fragments de poèmes est possible, dans le respect des droits applicables.</p>
+              <h4 class="font-bold text-sm uppercase mb-1" data-i18n="textsAndExcerpts">Textes & Fragments</h4>
+              <p class="text-xs text-slate-700" data-i18n="textsAndExcerptsDescription">L’utilisation de ses textes et de fragments de poèmes est possible, dans le respect des droits applicables.</p>
             </article>
           </div>
         </div>
@@ -196,37 +224,44 @@
     <section aria-labelledby="production-titre" class="riso-texture py-16 border-b border-risoblack/20">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
         <div class="md:col-span-4">
-          <h2 class="text-xs uppercase font-mono tracking-widest text-risoblack font-bold">03. Production</h2>
-          <h3 id="production-titre" class="text-3xl font-serif mt-2">La risographie comme terrain</h3>
+          <h2 class="text-xs uppercase font-mono tracking-widest text-risoblack font-bold" data-i18n="sectionThree">03. Production</h2>
+          <h3 id="production-titre" class="text-3xl font-serif mt-2" data-i18n="risoHeading">La risographie comme terrain</h3>
         </div>
         <div class="md:col-span-8 space-y-6">
           <p class="text-slate-700">
-            Les publications seront imprimées par le studio <strong>Tarakomat</strong>, qui prendra entièrement en charge les frais d’impression.
+            <span data-i18n="printingDescription">Les publications seront imprimées par le studio <strong>Tarakomat</strong>, qui prendra entièrement en charge les frais d’impression.</span>
+          </p>
+          <p class="text-slate-700">
+            <span data-i18n="paletteDescription">Pensez à la palette dès la conception : les superpositions, les trames, les décalages et les variations de couleurs propres à la risographie peuvent devenir de véritables outils de création.</span>
           </p>
           
           <div class="bg-white p-6 border-2 border-risoblack space-y-4">
-            <h4 class="font-mono text-xs uppercase font-bold text-slate-700">Spécifications techniques</h4>
+            <h4 class="font-mono text-xs uppercase font-bold text-slate-700" data-i18n="technicalSpecs">Spécifications techniques</h4>
             <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-mono">
               <li class="flex items-start space-x-2">
                 <span class="mt-1 w-2 h-2 shrink-0 bg-risored inline-block"></span>
-                <span><strong>Palette :</strong> 4 encres — noir, bleu, rouge, jaune</span>
+                <span data-i18n="palette">Palette : 4 encres — noir, bleu, rouge, jaune</span>
               </li>
               <li class="flex items-start space-x-2">
                 <span class="mt-1 w-2 h-2 shrink-0 bg-risoblue inline-block"></span>
-                <span><strong>Format max. :</strong> A3</span>
+                <span data-i18n="maxFormat">Format max. : A3</span>
               </li>
               <li class="flex items-start space-x-2">
                 <span class="mt-1 w-2 h-2 shrink-0 bg-risoyellow inline-block"></span>
-                <span><strong>Projets retenus :</strong> 9</span>
+                <span data-i18n="selectedProjects">Projets retenus : 9</span>
               </li>
               <li class="flex items-start space-x-2">
                 <span class="mt-1 w-2 h-2 shrink-0 bg-risoblack inline-block"></span>
-                <span><strong>Tirage :</strong> 50 à 100 exemplaires par projet</span>
+                <span data-i18n="printRun">Tirage : 50 à 100 exemplaires par projet, selon sa nature et sa complexité</span>
               </li>
             </ul>
             <p class="text-xs text-slate-500 italic pt-2 border-t border-slate-100">
-              Fanzine, journal, affiche, carte postale, édition de poésie ou toute autre forme imprimée. Un tiers du tirage est destiné à l’artiste.
+              <span data-i18n="publicationFormats">Fanzine, journal, affiche, carte postale, édition de poésie ou toute autre forme imprimée. Un tiers du tirage est destiné à l’artiste.</span>
             </p>
+          </div>
+          <div class="border-l-2 border-risoblue pl-4 space-y-2 text-sm text-slate-700">
+            <p data-i18n="juryAndShowcase">Un jury indépendant composé de professionnels sélectionnera neuf projets, qui donneront lieu à neuf publications distinctes. Elles seront présentées au public lors de l’événement du 29 novembre 2026.</p>
+            <p data-i18n="shippingAndSales">Pour les artistes résidant hors d’Algérie, les frais de transport international des exemplaires sont à leur charge. S’ils ne souhaitent pas récupérer leurs exemplaires, une somme équivalente leur sera versée. Le prix de vente des publications sera fixé par Tarakomat.</p>
           </div>
         </div>
       </div>
@@ -236,25 +271,25 @@
     <section id="candidater" aria-labelledby="candidater-titre" class="py-20">
       <div class="bg-risoblack text-paper p-8 md:p-12 border-2 border-risoblack relative overflow-hidden">
         <div class="max-w-2xl space-y-6 relative z-10">
-          <h2 id="candidater-titre" class="text-4xl md:text-5xl font-serif">Comment participer ?</h2>
+          <h2 id="candidater-titre" class="text-4xl md:text-5xl font-serif" data-i18n="howToApply">Comment participer ?</h2>
           <p class="text-slate-200">
-            Les candidatures se font uniquement par e-mail. Envoyez votre projet (existant ou conçu pour l’occasion), accompagné de quelques lignes expliquant son lien avec Jean Sénac, d’une courte biographie et de vos coordonnées.
+            <span data-i18n="applicationDescription">Les candidatures se font uniquement par e-mail. Envoyez votre projet (existant ou conçu pour l’occasion), accompagné de quelques lignes expliquant son lien avec Jean Sénac, d’une courte biographie et de vos coordonnées. La proposition doit permettre d’apprécier votre démarche artistique et d’envisager sa réalisation en risographie.</span>
           </p>
           
           <div class="p-4 bg-white/10 backdrop-blur border border-white/20 text-xs font-mono space-y-2">
-            <p class="text-risoyellow uppercase font-bold">Votre dossier doit comprendre :</p>
+            <p class="text-risoyellow uppercase font-bold" data-i18n="applicationMustInclude">Votre dossier doit comprendre :</p>
             <ul class="list-disc list-inside space-y-1 text-slate-200">
-              <li>Le fichier de la proposition artistique (format A3 maximum)</li>
-              <li>Une note d’intention et le lien avec Sénac</li>
-              <li>Une courte biographie et vos coordonnées</li>
+              <li data-i18n="applicationItemOne">Le fichier de la proposition artistique (format A3 maximum)</li>
+              <li data-i18n="applicationItemTwo">Une note d’intention et le lien avec Sénac</li>
+              <li data-i18n="applicationItemThree">Une courte biographie et vos coordonnées</li>
             </ul>
           </div>
 
           <div class="pt-4">
             <a href="mailto:editionslachambreclaire@gmail.com?subject=Candidature%20%E2%80%94%20Appel%20%C3%A0%20projets%20Jean%20S%C3%A9nac&amp;body=Bonjour%2C%0A%0AVeuillez%20trouver%20ci-joint%20ma%20candidature.%0A%0AChecklist%20%3A%0A%E2%80%A2%20Proposition%20artistique%20(A3%20maximum)%0A%E2%80%A2%20Note%20d%E2%80%99intention%20et%20lien%20avec%20Jean%20S%C3%A9nac%0A%E2%80%A2%20Courte%20biographie%0A%E2%80%A2%20Coordonn%C3%A9es%0A"
                class="inline-flex flex-col gap-1 border-2 border-risored bg-risored px-6 py-4 font-mono text-white transition-colors hover:border-white hover:bg-white hover:text-risoblack">
-              <span class="text-xs font-bold uppercase tracking-widest">Envoyer votre candidature par e-mail ↗</span>
-              <span class="break-all text-base font-bold normal-case tracking-normal md:text-lg">editionslachambreclaire@gmail.com</span>
+              <span class="text-xs font-bold uppercase tracking-widest" data-i18n="sendApplication">Envoyer votre candidature par e-mail ↗</span>
+              <span dir="ltr" class="break-all text-base font-bold normal-case tracking-normal md:text-lg">editionslachambreclaire@gmail.com</span>
             </a>
           </div>
         </div>
@@ -265,8 +300,174 @@
 
   <!-- Footer -->
   <footer class="border-t border-risoblack/20 py-8 text-center text-xs font-mono text-slate-600">
-    <p>Organisé par La Chambre Claire × Tarakomat — Centenaire de Jean Sénac, 1926–2026.</p>
+    <p data-i18n="footer">Organisé par La Chambre Claire × Tarakomat — Centenaire de Jean Sénac, 1926–2026.</p>
   </footer>
 
+  <script>
+    const translations = {
+      en: {
+        pageTitle: "Open Call — Jean Sénac (1926–2026)",
+        organizers: "Organizers",
+        languageSelector: "Language selector",
+        apply: "Apply",
+        centenary: "Centenary of his birth (1926–2026)",
+        callForProjects: "Open Call:",
+        heroDescription: "La Chambre Claire and Tarakomat invite all artists and creators to propose a risograph publication for the poet’s centenary.",
+        deadline: "Deadline",
+        eventAndShowcase: "Event & presentation",
+        deadlineDate: "15 November 2026",
+        eventDate: "29 November 2026",
+        chambreClaire: "La Chambre Claire",
+        tarakomat: "Tarakomat",
+        organizerNames: "La Chambre Claire <span class=\"text-risored\">×</span> Tarakomat",
+        heroImageAlt: "Animated main visual for the Jean Sénac open call",
+        fallbackImageCaption: "Centenary · open call",
+        sectionOne: "01. The Poet",
+        whoWasSenac: "Who was Jean Sénac?",
+        contextOne: "Born on 29 November 1926 in Béni-Saf, Jean Sénac was a poet deeply committed to Algeria’s struggle for independence and a distinctive voice for freedom, the body, and desire.",
+        contextTwo: "Shaped by the hopes of revolution, the contradictions of independence, and the experience of marginalization, his work and life continue to question our relationship to emancipation, collective belonging, and individual freedom.",
+        contextThree: "A champion of new Algerian poetic voices, Sénac also helped bring a generation of writers and creators to prominence. This centenary is an opportunity not only to revisit his work, but also to carry this commitment forward by making space for new artistic and intellectual expression.",
+        sectionTwo: "02. Formats & Approaches",
+        dialogueHeading: "Enter into dialogue",
+        formatsDescription: "Photography, drawing, poetry, collage, illustration, writing, comics, typography, reinterpreted archives… All forms of work that can be printed using risography are welcome. The final format is open, up to A3. Artists may submit an existing work or create a new project for the occasion.",
+        dialogueDescription: "Your work does not have to illustrate his poems. It should enter into dialogue with Jean Sénac in a personal and distinctive way. This tribute invites a contemporary, sensitive, or critical perspective on his legacy without confining his work to a single interpretation.",
+        freeApproach: "Open approach",
+        freeApproachDescription: "Draw on Sénac’s writing, life, world, era, or the questions his work raises today.",
+        textsAndExcerpts: "Texts & excerpts",
+        textsAndExcerptsDescription: "You may use his writing and excerpts from his poems, subject to applicable rights.",
+        sectionThree: "03. Production",
+        risoHeading: "Risography as a creative medium",
+        printingDescription: "The publications will be printed at the Tarakomat studio, which will cover all printing costs.",
+        paletteDescription: "Consider the palette from the start: the layering, halftones, misregistration, and color variations unique to risography can become creative tools in their own right.",
+        technicalSpecs: "Technical specifications",
+        palette: "<strong>Palette:</strong> 4 inks — black, blue, red, yellow",
+        maxFormat: "<strong>Maximum format:</strong> A3",
+        selectedProjects: "<strong>Selected projects:</strong> 9",
+        printRun: "<strong>Print run:</strong> 50–100 copies per project, depending on its nature and complexity",
+        publicationFormats: "Fanzine, newspaper, poster, postcard, poetry publication, or any other printed format. One third of the print run goes to the artist.",
+        juryAndShowcase: "An independent jury of professionals will select nine projects, resulting in nine separate publications. They will be presented to the public at the event on 29 November 2026.",
+        shippingAndSales: "Artists living outside Algeria are responsible for international shipping costs for their copies. If they do not wish to receive their copies, they will be paid an equivalent amount instead. Tarakomat will set the sale price of the publications.",
+        howToApply: "How to apply",
+        applicationDescription: "Apply by email. Send your project (existing or created for the occasion), a few lines explaining its connection to Jean Sénac, a short biography, and your contact details. Your submission should give the jury a clear sense of your artistic proposal and how it could be produced using risography.",
+        applicationMustInclude: "Your application must include:",
+        applicationItemOne: "The artistic proposal (maximum A3)",
+        applicationItemTwo: "A short statement explaining its connection to Sénac",
+        applicationItemThree: "A short biography and your contact details",
+        sendApplication: "Send your application by email ↗",
+        footer: "Organized by La Chambre Claire × Tarakomat — Jean Sénac centenary, 1926–2026.",
+        metaDescription: "La Chambre Claire and Tarakomat invite artists to submit risograph publication projects for the Jean Sénac centenary. Apply by 15 November 2026.",
+        emailSubject: "Application — Jean Sénac open call",
+        emailBody: "Hello,\n\nPlease find my application attached.\n\nChecklist:\n• Artistic proposal (maximum A3)\n• Statement explaining its connection to Jean Sénac\n• Short biography\n• Contact details\n"
+      },
+      ar: {
+        pageTitle: "دعوة مفتوحة — جان سيناك (1926–2026)",
+        organizers: "الجهتان المنظمتان",
+        languageSelector: "اختيار اللغة",
+        apply: "قدّم مشروعك",
+        centenary: "مئوية ميلاده (1926–2026)",
+        callForProjects: "دعوة مفتوحة:",
+        heroDescription: "تدعو لا شامبر كلير واستوديو تاراكومات جميع الفنانين والمبدعين إلى تقديم مقترحات لإصدارات مطبوعة بالريزوغراف احتفاءً بمئوية الشاعر.",
+        deadline: "آخر موعد للتقديم",
+        eventAndShowcase: "الفعالية والعرض",
+        deadlineDate: "15 نوفمبر 2026",
+        eventDate: "29 نوفمبر 2026",
+        chambreClaire: "الغرفة المضيئة",
+        tarakomat: "تاراكومات",
+        organizerNames: "الغرفة المضيئة <span class=\"text-risored\">×</span> تاراكومات",
+        heroImageAlt: "الصورة المتحركة الرئيسية للدعوة المفتوحة الخاصة بجان سيناك",
+        fallbackImageCaption: "مئوية · دعوة مفتوحة",
+        sectionOne: "01. الشاعر",
+        whoWasSenac: "من هو جان سيناك؟",
+        contextOne: "وُلد جان سيناك في 29 نوفمبر 1926 في بني صاف. وكان شاعرًا ملتزمًا بعمق بالنضال من أجل استقلال الجزائر، وصوتًا مميزًا للحرية والجسد والرغبة.",
+        contextTwo: "تواصل أعماله ومسيرته، بما حملتاه من آمال الثورة وتناقضات الاستقلال وتجربة التهميش، مساءلة علاقتنا بالتحرر والانتماء الجماعي والحرية الفردية.",
+        contextThree: "دافع سيناك عن أصوات شعرية جزائرية جديدة، وأسهم في إبراز جيل من الكتّاب والمبدعين. وتمثل هذه المئوية فرصة لإعادة اكتشاف أعماله ومواصلة هذا الالتزام بإفساح المجال أمام تعبيرات فنية وفكرية جديدة.",
+        sectionTwo: "02. الأشكال والمقاربات",
+        dialogueHeading: "حوار مع جان سيناك",
+        formatsDescription: "التصوير الفوتوغرافي، والرسم، والشعر، والكولاج، والتوضيح، والكتابة، والقصص المصورة، والطباعة، وإعادة قراءة الأرشيف… نرحب بكل أشكال الإبداع القابلة للطباعة بتقنية الريزوغراف. الشكل النهائي مفتوح حتى مقاس A3. يمكن للفنانين تقديم عمل موجود أو ابتكار مشروع لهذه المناسبة.",
+        dialogueDescription: "ليس من الضروري أن يقدّم العمل رسومًا لقصائده؛ بل ندعو إلى حوار شخصي ومتفرد مع جان سيناك. وتتيح هذه التحية نظرة معاصرة أو حساسة أو نقدية إلى إرثه، من دون حصر أعماله في تفسير واحد.",
+        freeApproach: "مقاربة حرة",
+        freeApproachDescription: "استلهموا من نصوص سيناك أو مسيرته أو عالمه أو عصره أو الأسئلة التي تطرحها أعماله اليوم.",
+        textsAndExcerpts: "النصوص والمقتطفات",
+        textsAndExcerptsDescription: "يمكن استخدام نصوصه ومقتطفات من قصائده، مع مراعاة الحقوق المعمول بها.",
+        sectionThree: "03. الإنتاج",
+        risoHeading: "الريزوغراف مجالًا للإبداع",
+        printingDescription: "ستُطبع الإصدارات في استوديو تاراكومات، الذي سيتكفل بكامل تكاليف الطباعة.",
+        paletteDescription: "يرجى مراعاة لوحة الألوان منذ بداية التصميم؛ إذ يمكن أن يصبح التراكب والتنقيط والانزياح وتفاوت الألوان، وهي من خصائص الريزوغراف، أدوات إبداعية بحد ذاتها.",
+        technicalSpecs: "المواصفات التقنية",
+        palette: "<strong>الألوان:</strong> أربعة أحبار — أسود وأزرق وأحمر وأصفر",
+        maxFormat: "<strong>المقاس الأقصى:</strong> A3",
+        selectedProjects: "<strong>المشاريع المختارة:</strong> 9",
+        printRun: "<strong>عدد النسخ:</strong> من 50 إلى 100 نسخة لكل مشروع، بحسب طبيعته وتعقيده",
+        publicationFormats: "مجلة فنية، أو صحيفة، أو ملصق، أو بطاقة بريدية، أو إصدار شعري، أو أي شكل مطبوع آخر. يحصل الفنان على ثلث عدد النسخ.",
+        juryAndShowcase: "تختار لجنة مستقلة من المختصين تسعة مشاريع، لينتج عنها تسعة إصدارات منفصلة. وستُعرض للجمهور خلال الفعالية المقامة في 29 نوفمبر 2026.",
+        shippingAndSales: "يتكفل الفنانون المقيمون خارج الجزائر بمصاريف الشحن الدولي لنسخهم. وإذا لم يرغبوا في استلامها، يُدفع لهم مبلغ يعادل قيمتها. ويحدد استوديو تاراكومات سعر بيع الإصدارات.",
+        howToApply: "كيفية المشاركة",
+        applicationDescription: "تُرسل المشاركات عبر البريد الإلكتروني. أرسلوا المشروع المقترح، سواء أكان عملًا موجودًا أم مشروعًا أُعد لهذه المناسبة، مع بضعة أسطر تشرح صلته بجان سيناك، ونبذة قصيرة عنكم وبيانات التواصل. ينبغي أن يتيح المقترح للجنة فهم الفكرة الفنية وتصور تنفيذها بتقنية الريزوغراف.",
+        applicationMustInclude: "يجب أن يتضمن ملف التقديم:",
+        applicationItemOne: "ملف المقترح الفني (بمقاس لا يتجاوز A3)",
+        applicationItemTwo: "نبذة عن الفكرة وصلتها بسيناك",
+        applicationItemThree: "سيرة قصيرة وبيانات التواصل",
+        sendApplication: "أرسلوا طلب المشاركة عبر البريد الإلكتروني ↗",
+        footer: "تنظيم لا شامبر كلير × تاراكومات — مئوية جان سيناك، 1926–2026.",
+        metaDescription: "تدعو لا شامبر كلير وتاراكومات الفنانين إلى تقديم مشاريع إصدارات مطبوعة بالريزوغراف احتفاءً بمئوية جان سيناك. آخر موعد للتقديم 15 نوفمبر 2026.",
+        emailSubject: "طلب مشاركة — دعوة جان سيناك المفتوحة",
+        emailBody: "مرحبًا،\n\nأرفق لكم ملف مشاركتي.\n\nقائمة التحقق:\n• المقترح الفني (بمقاس لا يتجاوز A3)\n• نبذة عن الفكرة وصلتها بجان سيناك\n• سيرة قصيرة\n• بيانات التواصل\n"
+      }
+    };
+
+    const originalText = new Map(
+      [...document.querySelectorAll("[data-i18n]")].map((element) => [element, element.innerHTML])
+    );
+    const originalAttributes = new Map();
+    for (const attribute of ["aria-label", "alt", "content"]) {
+      const keyAttribute = `i18n${attribute[0].toUpperCase()}${attribute.slice(1)}`;
+      for (const element of document.querySelectorAll(`[data-i18n-${attribute}]`)) {
+        const key = element.dataset[keyAttribute];
+        originalAttributes.set(`${attribute}:${key}`, element.getAttribute(attribute));
+      }
+    }
+
+    const applicationLink = document.querySelector("#candidater a[href^='mailto:']");
+    const originalApplicationHref = applicationLink.href;
+    const emailAddress = "editionslachambreclaire@gmail.com";
+
+    function setLanguage(language) {
+      document.documentElement.lang = language;
+      document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+
+      for (const [element, original] of originalText) {
+        element.innerHTML = language === "fr" ? original : translations[language][element.dataset.i18n];
+      }
+
+      for (const attribute of ["aria-label", "alt", "content"]) {
+        const keyAttribute = `i18n${attribute[0].toUpperCase()}${attribute.slice(1)}`;
+        for (const element of document.querySelectorAll(`[data-i18n-${attribute}]`)) {
+          const key = element.dataset[keyAttribute];
+          const original = originalAttributes.get(`${attribute}:${key}`);
+          element.setAttribute(attribute, language === "fr" ? original : translations[language][key]);
+        }
+      }
+
+      for (const button of document.querySelectorAll(".language-button")) {
+        const isSelected = button.dataset.language === language;
+        button.setAttribute("aria-pressed", String(isSelected));
+        button.classList.toggle("bg-risoblack", isSelected);
+        button.classList.toggle("text-white", isSelected);
+      }
+
+      if (language === "fr") {
+        applicationLink.href = originalApplicationHref;
+      } else {
+        const { emailSubject, emailBody } = translations[language];
+        applicationLink.href = `mailto:${emailAddress}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+      }
+    }
+
+    document.querySelectorAll(".language-button").forEach((button) => {
+      button.addEventListener("click", () => setLanguage(button.dataset.language));
+    });
+
+    setLanguage("fr");
+  </script>
 </body>
 </html>
